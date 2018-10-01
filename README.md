@@ -14,19 +14,21 @@ This is a Chrome App to test and control your Blinkstick LEDs, and to connect it
 - Switch on Developer mode (tickbox at the top right)
 - Click "Load Unpacked Extension..." button to find the repo folder and install it as an app
 
-# Using a Blinkstick
-When the app is running plug in a Blinkstick and it'll be detected automatically. Note: BsC doesn't yet detect the number of available LEDs, so you'll get 8 controls. Using controls for LEDs that don't exist will throw out errors.
+![Preview](https://github.com/NGRP/INNO-chrome-blinkstick/blob/master/assets/preview.png)
 
-![Preview]
+# Configuration
+Click *Configuration* (navbar) to access the configuration panel. There, you can chose the number of LEDs of your device, but also configure the SocketIO connection. You cannot save the configuration, but download and upload a file to save time.
 
-# Emulating a Blinkstick
-You don't actually need a Blinkstick to use BsC. Click on the Emulators menu at the top of the app, then select a device type to emulate. A 3D visualisation of the device will be displayed, and all the controls will work with it.
+# Connection info
+You can get information on the SocketIO connection or the device acess by clicking *State* for both panels. 
 
-# The Bridge
-BsC includes a small server instance that accepts basic controls for the Blinkstick. To use it, connect to 127.0.0.1:8888 and send a JSON string in the format of {i:<index>,r:<red>,g:<green>,b:<blue>} eg {i:0,r:255,g:0,:b:0} to turn the 0th LED red.
+# Tests
+To test your Blinkstick and create patterns, click *Test panel*. When you test a pattern, you get the json object that you socketIO server can send in order to get the same. For information, the "stop animation" send :
 
-The advantage of using the bridge is that you can control a Blinkstick using any programming language that can send a TCP packet.
-
-
-
-
+```
+{	
+    "action": "swi",
+    "colors": [{"r":0, "g":0, "b":0}],
+    "loops": 0
+}
+```
