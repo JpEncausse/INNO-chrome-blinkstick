@@ -1,6 +1,7 @@
 # BlinkstickChrome2
-This project is based on [BlinkstickChrome](https://github.com/onion2k/BlinkstickChrome), a Chrome app by onion2k.
-This is a Chrome App to test and control your Blinkstick LEDs, and to connect it with a SocketIO server.
+| Chrome App | Reference|
+| --- | --- |
+| ![Preview](https://github.com/NGRP/INNO-chrome-blinkstick/blob/master/assets/icon.png) | This project is based on [BlinkstickChrome](https://github.com/onion2k/BlinkstickChrome), a Chrome app published by onion2k. <br>This is a Chrome App to test and control your Blinkstick LEDs, and to connect it with a SocketIO server. <br>Once you're ready with your light patterns, just copy the given code and send it later xith you SocketIO server!  |
 
 # Requierements
 - A Chrome dev channel to access chrome.hid
