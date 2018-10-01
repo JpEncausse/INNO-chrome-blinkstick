@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BlinkstickChrome2</title>
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/colorpicker/bootstrap-colorpicker.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+  </head>
+  <body>
+
+    
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">BlinkstickChrome</a>
+        </div>
+    
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav" id="menu">
+            <li><a href="#panel">Tests panel</a></li>
+            <li><a href="#config">Configuration</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div id="infoControl" class="clearfix">
+
+      <div class="col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+            <div class="btn-group pull-right">
+                <a href="#blinkstickState" class="text-muted">State</a>
+            </div>
+            <h3 class="panel-title">Blinkstick info</h3>
+          </div>
+          <div class="panel-body" id="blinkstickInfo"></div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+                <div class="btn-group pull-right">
+                    <a href="#socketState" class="text-muted">State</a>
+                </div>
+                <h3 class="panel-title">SocketIO info</h3>
+              </div>
+            <div class="panel-body" id="socketInfo"></div>
+          </div>
+        </div>
+    
+    </div>
+  
+    <div id="mainControl" class="clearfix" >
+      <div class="subControl panel" id="display-panel">
+          <h3>Animation</h3>
+          <div class="row">
+              <div class="col-sm-4">
+                  <form class ="form-inline">
+                      <div class="form-group" style="width: 100%;">
+                        <label for="animation-action" style="width: 100px;">Action</label>
+                        <select class="form-control" id="animation-action" style="width: 150px;">
+                          <option value="swi">Switch</option>
+                          <option value="ltr">Left to right</option>
+                          <option value="rtl">Right to left</option>
+                          <option value="ext">External</option>
+                          <option value="int">Internal</option>
+                        </select>
+                      </div>
+                  </form>
+              </div>
+            <div class="col-sm-4">
+                <form class ="form-inline">
+                  <div class="form-group" style="width: 100%;">
+                    <label for="animation-size" style="width: 100px;">Size</label>
+                    <input type="number" class="form-control" id="animation-size" placeholder="8" min="1" value="8" style="width: 150px;">
+                  </div>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <form class ="form-inline">
+                  <div class="form-group" style="width: 100%;">
+                    <label for="animation-loops" style="width: 100px;">Loops</label>
+                    <input type="number" class="form-control" id="animation-loops" placeholder="0" min="0" value="0" style="width: 150px;">
+                  </div>
+                </form>
+            </div>
+          </div>
+          <br>
+          <h3>Colors</h3>
+          <div class="row">
+            <div class="col-sm-4">
+                <form class ="form-inline">
+                  <div class="form-group" style="width: 100%;">
+                    <label for="colors-number" style="width: 100px;">Colors</label>
+                    <input type="number" class="form-control" id="colors-number" placeholder="1" min="1" style="width: 150px;">
+                  </div>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <form class ="form-inline">
+                    <div class="form-group" style="width: 100%;">
+                      <label for="colors-delay" style="width: 100px;">Delay</label>
+                      <input type="number" class="form-control" id="colors-delay" placeholder="1000" value="1000" min="0" style="width: 150px;">
+                    </div>
+                </form>
+            </div>
+          </div>
+          <br>
+          <div class="row" >
+              <form class ="form-inline" id="colors">
+              </form>
+          </div>
+          <br><br>
+          <button class="btn btn-default" id="testAnimation">Test animation</button>
+          <button class="btn btn-default" id="stopAnimation">Stop animation</button>
+          <br><br>
+          <div class="row" id="infopanel">
+            <pre><code id="infocode"></code><button class="btn btn-sm btn-default" id="infocopy">Copy</button></pre>
+          </div>
+      </div>
+      <div class="subControl panel" id="display-config" style="display:none;">
+        <form>
+          <h3>Blinkstick</h3>
+          <div class="form-group">
+            <label for="blink-vendor">HID vendor ID</label>
+            <input type="number" class="form-control" id="blink-vendor" placeholder="8352">
+          </div>
+          <div class="form-group">
+            <label for="blink-product">HID product ID</label>
+            <input type="number" class="form-control" id="blink-product" placeholder="16869">
+          </div>
+          <div class="form-group">
+            <label for="blink-leds">Leds</label>
+            <input type="number" class="form-control" id="blink-leds" placeholder="8">
+          </div>
+
+          <h3>SocketIO</h3>
+          <div class="form-group">
+            <label for="socket-host">Host</label>
+            <input type="text" class="form-control" id="socket-host" placeholder="http://localhost">
+          </div>
+          <div class="form-group">
+            <label for="socket-path">Path</label>
+            <input type="text" class="form-control" id="socket-path" placeholder="/">
+          </div>
+          <div class="form-group">
+            <label for="socket-name">Name</label>
+            <input type="text" class="form-control" id="socket-name" placeholder="blinkstick">
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="socket-secure">
+            <label class="form-check-label" for="socket-secure">Secure</label>
+          </div>
+
+          <br>
+          <button class="btn btn-default" id="restart">Update and restart</button>
+          <button class="btn btn-default" id="download">Download configuration</button>
+          <button class="btn btn-default" id="load">Load configuration</button>
+
+        </form>
+      </div>
+    </div>
+
+    <script src="assets/socket.io.js"></script>
+    <script src="assets/jquery-2.1.4.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/colorpicker/bootstrap-colorpicker.js"></script>
+
+    <!-- TODO Load by manifest //-->
+    <script src="socket-control.js"></script>
+    <script src="interface-control.js"></script>
+    <script src="leds-control.js"></script>
+    <script src="main.js"></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </body>
+</html>

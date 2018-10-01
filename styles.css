@@ -1,0 +1,56 @@
+/* CSS file placeholder. */
+body {
+  padding-top: 60px;
+}
+
+canvas {
+  width: 800px;
+  height: 200px;
+}
+
+.panel-body {
+  overflow-y: scroll;
+  height: 100px;
+}
+
+#infoControl {
+  background-color: #FFF;
+}
+
+#mainControl {
+  background-color: #BBB;
+  padding: 20px;
+  height: 100vh;
+}
+
+.subControl {
+  padding: 10px 30px 30px 30px;
+  height: calc( 100% - 225px);
+  overflow-y: scroll;
+}
+
+.color-picker {
+  cursor: pointer;
+  width: 150px !important;
+}
+
+.form-color {
+  margin-right: 20px;
+  margin-bottom: 5px !important;
+}
+
+.color-round {
+  font-size: 16px;
+}
+
+#infopanel {
+  position: relative;
+  display: none;
+  min-height: 40px;
+}
+
+#infocopy {
+  position: absolute;
+  top:5px;
+  right: 5px;
+}

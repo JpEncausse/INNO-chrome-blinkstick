@@ -1,0 +1,13 @@
+{
+    "blinkstick": {
+        "vendor": 8352,
+        "product": 16869,
+        "leds": 32
+    },
+    "socket": {
+        "host": "https://poc.viseo.io",
+        "path": "/miroir/socket.io",
+        "name": "blinkstick",
+        "secure": true
+    }
+}

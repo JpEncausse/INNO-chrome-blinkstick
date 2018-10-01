@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "BlinkstickChome2",
+  "short_name": "BlinkstickChome2",
+  "description": "A BlinkStick tester and SocketIO controller",
+  "version": "0.0.1",
+  "minimum_chrome_version": "38",
+
+  "icons": {
+    "16": "assets/icon_16.png",
+    "128": "assets/icon_128.png"
+  },
+
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+
+  "permissions": [
+    "system.network",
+    "usb",
+    "hid",
+    {
+      "usbDevices": [
+        {
+          "vendorId": 8352,
+          "productId": 16869
+        }
+      ]
+    }
+  ],
+  "sockets": {
+    "tcpServer": {
+      "listen": ""
+    }
+  }
+}
