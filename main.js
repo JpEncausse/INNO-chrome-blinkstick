@@ -45,7 +45,7 @@ chrome.hid.onDeviceRemoved.addListener(function(){
 
 function processLeds(data) {
   if (!data.action) return;
-
+  stopAnimation = true;
   console.log(data)
 
   switch(data.action) {
