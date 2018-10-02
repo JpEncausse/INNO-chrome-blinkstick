@@ -142,7 +142,6 @@ $("#infocopy").on("click", function() {
 })
 
 $("#testAnimation").on("click", function() {
-    stopAnimation = true;
 
     let data = {
         "action":   $("#animation-action").val(),
